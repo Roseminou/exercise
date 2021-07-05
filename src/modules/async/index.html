@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>异步操作</title>
+</head>
+<body>
+    <script>
+        async function timeout() {
+            return 'hello world'
+        }
+        console.log('异步函数输出内容', timeout());
+        // 输出为promise对象，包括状态值和结果，
+        // promise的状态值 pending 初始状态  fulfilled 成功   rejected 失败
+        timeout().then(res => {
+            console.log('异步函数', res) 
+        }); 
+        console.log('异步之后输出');
+        // 由于async函数之后输出为promise，测试promise的正确错误结果
+        async function timeout2(flag) {
+            if (flag) {
+                return 'hello world'
+            } else {
+                throw 'my god, failed'
+            }
+        }
+        console.log('异步成功', timeout2(true));
+        console.log('异步失败', timeout2(false));
+        timeout2(false).catch(res => {
+            console.log('异步失败输出', res);
+        })
+
+        // await
+        function after2seconds() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('2秒后返回值')
+                }, 2000);
+            } )
+        }
+        async function awaitTest() {
+            let result = await after2seconds()
+            console.log('after2seconds', result);
+        }
+        awaitTest()
+
+    </script>
+</body>
+</html>

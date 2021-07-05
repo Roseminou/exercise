@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>test</title>
+  <style>
+    #tabs {
+        display: flex;
+
+    }
+    #tabs .list {
+        width: 150px;
+    }
+    #tabs .list li {
+      list-style: none;
+      border: 1px solid #000000;
+      padding: 15px 0;
+      width: 100px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .content {
+        padding: 100px;
+        font-size: 20px;
+    }
+    .content .item {
+        display: none;
+    }
+    .temp {
+        padding-left: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="tabs">
+      <ul class="list">
+          <li onclick="changeTab(0)">实验目的</li>
+          <li onclick="changeTab(1)">实验原理</li>
+          <li onclick="changeTab(2)">实验材料</li>
+          <li onclick="changeTab(3)">实验仪器和试剂</li>
+          <li onclick="changeTab(4)">实验方法</li>
+      </ul>
+      <div class="content">
+          <div class="item">
+              <p class="text">· 学习和掌握绘制标准曲线的方法。</p>
+              <p class="text">· 掌握分光光度计的操作方法。</p>
+              <p class="text">· 学习和掌握测定淀粉酶活力的原理和方法。</p>
+          </div>
+          <div class="item">
+              <p class="title">· 麦芽糖标准曲线的绘制</p>
+              <p class="text temp">· 麦芽糖有还原性，加热条件下可将3,5-二硝基水杨酸还原生成棕红色的3-氨基-5-硝基水杨酸，其在540nm处有特征吸收，在一定范围内其颜色深浅与麦芽糖浓度成正比。配制呈浓度梯度的麦芽糖标准溶液，和3,5-二硝基水杨酸反应后测定产物的吸光度值，以麦芽糖浓度为横坐标，吸光度值为纵坐标，可得到标准曲线。</p>
+              <p class="title">· 淀粉酶活力的测定</p>
+              <p class="text temp">·
+                淀粉是植物最主要的贮藏多糖，也是人和动物的重要食物和发酵工业的基本原料。淀粉经淀粉酶作用后生成葡萄糖、麦芽糖等小分子物质而被机体利用。淀粉酶主要包括α-淀粉酶和β-淀粉酶两种。α-淀粉酶可随机地作用于淀粉中的α-1,4-糖苷键，生成葡萄糖、麦芽糖、麦芽三糖、糊精等还原糖，同时使淀粉的粘度降低，因此又称为液化酶。β-淀粉酶可从淀粉的非还原性末端进行水解，每次水解下一分子麦芽糖，又被称为糖化酶。淀粉酶催化产生的这些还原糖能使3,5-二硝基水杨酸还原，生成棕红色的3-氨基-5-硝基水杨酸，其反应如下：
+              </p>
+
+              淀粉酶活力的大小与产生的还原糖的量成正比。用标准浓度的麦芽糖溶液制作标准曲线，用比 色法测定淀粉酶作用于淀粉后生成的还原糖的量，以单位重量样品在一定时间内生成的麦芽糖的量表示酶活力。
+
+          </div>
+          <div class="item">三个</div>
+          <div class="item">四个</div>
+          <div class="item">五个</div>
+      </div>
+  </div>
+</body>
+<script>
+    function changeTab(index) {
+        // let tabList = document.getElementsByTagName('li')
+        let contentList = document.getElementsByClassName('item')
+        // console.log('tabList', tabList, contentList);
+        for (let i = 0; i < contentList.length; i++) {
+            contentList[i].style.display = "none"
+        }
+        contentList[index].style.display = "block"
+    }
+</script>
+
+</html>
+

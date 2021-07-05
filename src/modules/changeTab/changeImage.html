@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>test</title>
+    <style>
+        .imgContent {
+            margin: 0 auto;
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        .imgList {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+        }
+        .imgList li {
+            list-style: none;
+            
+        }
+        .imgList li img {
+            width: 500px;
+            height: 300px;
+
+        }
+        .button {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        .button span{
+            width: 100px;
+            height: 30px;
+            color: #ffffff;
+            margin-left: 50px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .button .last {
+            background: rgb(111, 186, 247);
+        }
+        .button .next {
+            background: rgb(39, 198, 171);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="images">
+        <div class="imgContent">
+            <ul class="imgList">
+                <li class="img"><img
+                    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589960685888&di=72726b4a532afc05e149693e5221ebd6&imgtype=0&src=http%3A%2F%2Fphotocdn.sohu.com%2F20120101%2FImg330966236.jpg"
+                    alt=""></li>
+                <li class="img"><img
+                    src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1926397613,2633879593&fm=26&gp=0.jpg"
+                    alt=""></li>
+                <li class="img"><img
+                    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589960685890&di=9c4911f3440b6da7950b0b753a4722d0&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F00%2F00%2F00%2F0056a0e6412b0ef.jpg"
+                    alt=""></li>
+                <li class="img"><img
+                    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589960685890&di=95f85b999e052056d49533b9ab79cecb&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fbaike%2Fpic%2Fitem%2F4075890afd92f15194ca6b08.jpg"
+                    alt=""></li>
+            </ul>
+        </div>
+        <div class="button">
+            <span class="last" onclick="changeLastImg()">上一步</span>
+            <span class="next" onclick="changeNextImg()">下一步</span>
+        </div>
+    </div>
+</body>
+<script>
+  function changeNextImg() {
+        let imgList = document.getElementsByClassName('imgList')[0]
+        let primaryLeft = imgList.offsetLeft
+        if (primaryLeft >= 2*(-500)) {
+            primaryLeft -= 500
+            imgList.style.left = primaryLeft + 'px'
+        }
+  }
+  function changeLastImg() {
+      let imgList = document.getElementsByClassName('imgList')[0]
+      let primaryLeft = imgList.offsetLeft
+      if (primaryLeft <= -500) {
+        primaryLeft += 500
+        imgList.style.left = primaryLeft + 'px'
+      }
+  }
+</script>
+
+</html>

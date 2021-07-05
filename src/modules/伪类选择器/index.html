@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+</head>
+<body>
+    <!-- :is和:where -->
+    <div class="header">
+        <p>我是什么颜色？</p>
+    </div>
+    <div class="main">
+        <p>你是什么颜色？</p>
+    </div>
+
+    <!-- :not -->
+    <div class="list">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="other">哈哈哈哈</div>
+
+    <!-- :has -->
+    <div class="has-example">
+        <section>
+            <h1>has里面的标签为h1</h1>
+        </section>
+        <section>
+            <p>has里面的标签p</p>
+        </section>
+    </div>
+
+    <!-- :empty和:blank -->
+    <div class="error"></div>
+
+    <!-- :focus和:focus-visible和:focus-within -->
+    <div class="button-array">
+        <div class="button1">
+            <button>点我</button>
+        </div>
+    </div>
+
+
+</body>
+<style>
+    body {
+        background: #ebebeb;
+    }
+    /* .main p, .header p {
+        color: green;
+    } */
+    :is(.main, .header)  p{
+        color: purple;
+    }
+    :where(.header, .main) p{
+        color: red;
+    }
+
+    .list .item {
+        width: 100%;
+        height: 50px;
+        background: #ffffff;
+    }
+    /* .item + .item {
+        margin-top: 20px;
+    } */
+    /* 或者这种 */
+    .list .item:not(:last-child) {
+        margin-bottom: 20px
+    }
+
+
+    /* :has伪类选择器 */
+    section:has(h1) {
+        color: red;
+        border-color: red;
+    }
+    section:has(p) {
+        color: salmon;
+    }
+
+    /* :empty和:blank */
+    :empty {
+        width: 100px;
+        height: 150px;
+        background: blue;
+    }
+    :blank {
+        background: salmon;
+    }
+
+    /* :focus和:focus-visible和:focus-within */
+    .button-array {
+        margin-top: 50px;
+    }
+    .button-array button {
+        padding: 0;
+        width: 150px;
+        height: 50px;
+        background: thistle;
+        border: 0 none;
+    }
+    .button1 button:focus {
+        background: #ffffff;
+        border: 1px solid red;
+    }
+    .button1 button:focus-visible {
+        background: skyblue;
+        border: 1px solid red;  
+        /* 自带权重最大，border颜色为橙黄色 */
+    }
+
+
+</style>
+</html>
